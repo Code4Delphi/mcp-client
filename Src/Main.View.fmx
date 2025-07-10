@@ -1,0 +1,125 @@
+object MainView: TMainView
+  Left = 0
+  Top = 0
+  Caption = 'MCP Client Demo'
+  ClientHeight = 513
+  ClientWidth = 689
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object pnBackAll: TPanel
+    Align = Client
+    Size.Width = 689.000000000000000000
+    Size.Height = 513.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Label1: TLabel
+      Align = Top
+      StyledSettings = [Family, Size, FontColor]
+      Size.Width = 689.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Center
+      Text = 'MCP Client Demo'
+      TabOrder = 2
+    end
+    object pnBottom: TPanel
+      Align = Bottom
+      Padding.Left = 3.000000000000000000
+      Padding.Top = 3.000000000000000000
+      Padding.Right = 3.000000000000000000
+      Padding.Bottom = 3.000000000000000000
+      Position.Y = 478.000000000000000000
+      Size.Width = 689.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object btnSettings: TButton
+        Align = Left
+        Position.X = 3.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = 'Settings'
+        TextSettings.Trimming = None
+      end
+      object btnToolsLog: TButton
+        Align = Left
+        Position.X = 83.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 81.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        Text = 'Logs'
+        TextSettings.Trimming = None
+      end
+      object cbModel: TComboBox
+        Align = Right
+        Items.Strings = (
+          'OpenAI'
+          'Gemini'
+          'Claude'
+          'Grok'
+          'Mistral'
+          'DeepSeek'
+          'Ollama')
+        ItemIndex = 2
+        Position.X = 440.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 158.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+      end
+      object btnAsk: TButton
+        Align = Right
+        Position.X = 598.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 88.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Ask'
+        TextSettings.Trimming = None
+      end
+    end
+    object mmQuestion: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      TextSettings.WordWrap = True
+      Align = Bottom
+      Position.Y = 411.000000000000000000
+      Size.Width = 689.000000000000000000
+      Size.Height = 67.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Viewport.Width = 685.000000000000000000
+      Viewport.Height = 63.000000000000000000
+    end
+    object Splitter1: TSplitter
+      Align = Bottom
+      Cursor = crVSplit
+      MinSize = 20.000000000000000000
+      Position.Y = 403.000000000000000000
+      Size.Width = 689.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object mmChat: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      Align = Client
+      Size.Width = 689.000000000000000000
+      Size.Height = 378.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Viewport.Width = 685.000000000000000000
+      Viewport.Height = 374.000000000000000000
+    end
+  end
+end
