@@ -39,6 +39,7 @@ type
     mmChat: TMemo;
     pnLoading: TPanel;
     AniIndicator1: TAniIndicator;
+    ckLimparChat: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure btnSettingsClick(Sender: TObject);
     procedure btnAskClick(Sender: TObject);
@@ -69,7 +70,6 @@ begin
 
   MCPDM.MCPClient.OnExecuted := Self.MCPClientExecuted;
 
-  mmChat.Lines.Clear;
   Self.cBoxIAServiceFill;
   Self.LoadSettings;
   Self.LoadMCPServers;
@@ -79,11 +79,15 @@ end;
 procedure TMainView.MCPClientExecuted(Sender: TObject; AResponse: string; AHttpStatusCode: Integer;
   AHttpResult: string);
 begin
-  if AResponse.Trim.IsEmpty then
+  Self.ShowLoading(False);
+
+  if AHttpStatusCode <> 200 then
+  begin
+    Self.AddChatResponse('# HTTP error code: ' + AHttpStatusCode.ToString + sLineBreak + AHttpResult);
     Exit;
+  end;
 
   Self.AddChatResponse(AResponse);
-  Self.ShowLoading(False);
 end;
 
 procedure TMainView.cBoxIAServiceFill;
@@ -123,6 +127,9 @@ end;
 
 procedure TMainView.AddChatQuestion(const AStr: string);
 begin
+  if ckLimparChat.IsChecked then
+   mmChat.Lines.Clear;
+
   mmChat.Lines.Add('Eu:');
   mmChat.Lines.Add(AStr.Trim);
   mmChat.Lines.Add(StringOfChar('-', 100));
@@ -131,6 +138,9 @@ end;
 
 procedure TMainView.AddChatResponse(const AStr: string);
 begin
+  if AStr.Trim.IsEmpty then
+    Exit;
+
   mmChat.Lines.Add(cboxIAService.Text + ':');
   mmChat.Lines.Add(AStr.Trim);
   mmChat.Lines.Add(StringOfChar('-', 100));

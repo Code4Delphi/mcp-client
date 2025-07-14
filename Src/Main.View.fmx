@@ -98,6 +98,17 @@ object MainView: TMainView
         TextSettings.Trimming = None
         OnClick = btnAskClick
       end
+      object ckLimparChat: TCheckBox
+        Align = Left
+        IsChecked = True
+        Position.X = 174.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 182.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        Text = 'Limpar chat a cada pergunta'
+      end
     end
     object mmQuestion: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
