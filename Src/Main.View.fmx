@@ -72,10 +72,12 @@ object MainView: TMainView
           'DeepSeek'
           'Ollama')
         ItemIndex = 2
+        Margins.Top = 3.000000000000000000
+        Margins.Bottom = 3.000000000000000000
         Position.X = 440.000000000000000000
-        Position.Y = 3.000000000000000000
+        Position.Y = 6.000000000000000000
         Size.Width = 158.000000000000000000
-        Size.Height = 29.000000000000000000
+        Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
       end
@@ -91,10 +93,25 @@ object MainView: TMainView
         TextSettings.Trimming = None
         OnClick = btnAskClick
       end
+      object AniIndicator1: TAniIndicator
+        Align = Right
+        Margins.Left = 3.000000000000000000
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 3.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 387.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Style = Circular
+      end
     end
     object mmQuestion: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
+      Lines.Strings = (
+        'Ol'#225' quem '#233' voc'#234' e qual seu criador?')
       TextSettings.WordWrap = True
       Align = Bottom
       Position.Y = 411.000000000000000000
@@ -126,5 +143,17 @@ object MainView: TMainView
       Viewport.Width = 685.000000000000000000
       Viewport.Height = 374.000000000000000000
     end
+  end
+  object mmLog: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Position.X = 416.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 249.000000000000000000
+    Size.Height = 339.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Viewport.Width = 245.000000000000000000
+    Viewport.Height = 335.000000000000000000
   end
 end

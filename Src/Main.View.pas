@@ -37,6 +37,8 @@ type
     mmQuestion: TMemo;
     Splitter1: TSplitter;
     mmChat: TMemo;
+    AniIndicator1: TAniIndicator;
+    mmLog: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnSettingsClick(Sender: TObject);
     procedure btnAskClick(Sender: TObject);
@@ -48,6 +50,7 @@ type
     procedure LoadSettings;
     procedure LoadMCPServers;
     procedure cBoxIAServiceFill;
+    procedure ShowLoading(const AShow: Boolean);
   public
 
   end;
@@ -68,10 +71,9 @@ begin
   //MCPDM.MCPClient.OnLog := MCPClientLog;
 
   //Application.CreateForm(TFormLog, FormLog);
+  Self.cBoxIAServiceFill;
   Self.LoadSettings;
   Self.LoadMCPServers;
-
-  Self.cBoxIAServiceFill;
 end;
 
 procedure TMainView.MCPClientExecuted(Sender: TObject; AResponse: string; AHttpStatusCode: Integer;
@@ -81,18 +83,12 @@ begin
     Exit;
 
   Self.AddChatResponse(AResponse);
-  //ShowLoading(False);
+  Self.ShowLoading(False);
 end;
 
 procedure TMainView.cBoxIAServiceFill;
-//var
-//  Service: TTMSMCPCloudAIService;
 begin
   cBoxIAService.Items.Clear;
-//  for Service := Low(TTMSMCPCloudAIService) to High(TTMSMCPCloudAIService) do
-//    cBoxIAService.Items.Add(GetEnumName(TypeInfo(TTMSMCPCloudAIService), Ord(Service)));
-//  cBoxIAService.ItemIndex := 3;
-
   cBoxIAService.Items.Assign(MCPDm.MCPClient.LLM.GetServices(True));
   cBoxIAService.ItemIndex := 0;
 end;
@@ -151,18 +147,25 @@ begin
   Self.SendToAI;
 end;
 
+procedure TMainView.ShowLoading(const AShow: Boolean);
+begin
+  AniIndicator1.Enabled := AShow;
+  AniIndicator1.Visible := AShow;
+end;
+
 procedure TMainView.SendToAI;
 begin
-  //MCPDM.MCPClient.LLM.Service := aiClaude;
-  //MCPDM.MCPClient.APIKeys.Claude := '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';
-  MCPDM.MCPClient.LLM.Service := TTMSMCPCloudAIService(cboxIAService.ItemIndex);
+  if Trim(mmQuestion.Text).IsEmpty then
+    raise Exception.Create('Informe um prompt para continuar');
+
+  MCPDM.MCPClient.LLM.Service := TTMSMCPCloudAIService(cboxIAService.Items.Objects[cboxIAService.ItemIndex]);
 
   Self.AddChatQuestion(mmQuestion.Text);
 
   MCPDM.MCPClient.Execute(mmQuestion.Text);
   mmQuestion.Lines.Clear;
 
-  //ShowLoading(True);
+  ShowLoading(True);
 end;
 
 end.
