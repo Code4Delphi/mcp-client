@@ -4,7 +4,8 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   Main.View in 'Src\Main.View.pas' {MainView},
-  MCP.DM in 'Src\MCP.DM.pas' {MCPDM: TDataModule};
+  MCP.DM in 'Src\MCP.DM.pas' {MCPDM: TDataModule},
+  Log.View in 'Src\Log.View.pas' {LogView};
 
 {$R *.res}
 

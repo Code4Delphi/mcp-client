@@ -10,7 +10,6 @@ uses
   System.Variants,
   System.IOUtils,
   System.IniFiles,
-  System.TypInfo,
   FMX.Types,
   FMX.Controls,
   FMX.Forms,
@@ -23,7 +22,8 @@ uses
   FMX.ScrollBox,
   FMX.Memo,
   TMS.MCP.CloudAI,
-  MCP.DM;
+  MCP.DM,
+  Log.View;
 
 type
   TMainView = class(TForm)
@@ -37,11 +37,12 @@ type
     mmQuestion: TMemo;
     Splitter1: TSplitter;
     mmChat: TMemo;
+    pnLoading: TPanel;
     AniIndicator1: TAniIndicator;
-    mmLog: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnSettingsClick(Sender: TObject);
     procedure btnAskClick(Sender: TObject);
+    procedure btnToolsLogClick(Sender: TObject);
   private
     procedure MCPClientExecuted(Sender: TObject; AResponse: string; AHttpStatusCode: Integer; AHttpResult: string);
     procedure SendToAI;
@@ -66,14 +67,13 @@ procedure TMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
 
-  mmChat.Lines.Clear;
   MCPDM.MCPClient.OnExecuted := Self.MCPClientExecuted;
-  //MCPDM.MCPClient.OnLog := MCPClientLog;
 
-  //Application.CreateForm(TFormLog, FormLog);
+  mmChat.Lines.Clear;
   Self.cBoxIAServiceFill;
   Self.LoadSettings;
   Self.LoadMCPServers;
+  Self.ShowLoading(False);
 end;
 
 procedure TMainView.MCPClientExecuted(Sender: TObject; AResponse: string; AHttpStatusCode: Integer;
@@ -149,8 +149,8 @@ end;
 
 procedure TMainView.ShowLoading(const AShow: Boolean);
 begin
+  pnLoading.Visible := AShow;
   AniIndicator1.Enabled := AShow;
-  AniIndicator1.Visible := AShow;
 end;
 
 procedure TMainView.SendToAI;
@@ -165,7 +165,19 @@ begin
   MCPDM.MCPClient.Execute(mmQuestion.Text);
   mmQuestion.Lines.Clear;
 
-  ShowLoading(True);
+  Self.ShowLoading(True);
+end;
+
+procedure TMainView.btnToolsLogClick(Sender: TObject);
+var
+  LLogView: TLogView;
+begin
+  LLogView := TLogView.Create(nil);
+  try
+    LLogView.ShowModal;
+  finally
+    LLogView.Free;
+  end;
 end;
 
 end.

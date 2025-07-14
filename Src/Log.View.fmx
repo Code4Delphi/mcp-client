@@ -1,0 +1,48 @@
+object LogView: TLogView
+  Left = 0
+  Top = 0
+  Caption = 'Log - MCP Client Demo'
+  ClientHeight = 685
+  ClientWidth = 769
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object mmLog: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Scale
+    Size.Width = 769.000366210937500000
+    Size.Height = 685.000183105468800000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 765.000000000000000000
+    Viewport.Height = 681.000000000000000000
+  end
+  object pnBottom: TPanel
+    Align = Bottom
+    Padding.Left = 3.000000000000000000
+    Padding.Top = 3.000000000000000000
+    Padding.Right = 3.000000000000000000
+    Padding.Bottom = 3.000000000000000000
+    Position.Y = 650.000000000000000000
+    Size.Width = 769.000000000000000000
+    Size.Height = 35.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnLogsClear: TButton
+      Align = Left
+      Position.X = 3.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 29.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Clear Logs'
+      TextSettings.Trimming = None
+      OnClick = btnLogsClearClick
+    end
+  end
+end

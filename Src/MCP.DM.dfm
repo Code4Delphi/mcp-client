@@ -1,4 +1,5 @@
 object MCPDM: TMCPDM
+  OnCreate = DataModuleCreate
   Height = 339
   Width = 432
   object MCPClient: TTMSMCPClient
@@ -14,6 +15,8 @@ object MCPDM: TMCPDM
     Settings.MistralModel = 'mistral-large-latest'
     Service = aiOpenAI
     Servers = <>
+    ToolCallMode = tcmAllow
+    OnLog = MCPClientLog
     Left = 104
     Top = 72
   end
