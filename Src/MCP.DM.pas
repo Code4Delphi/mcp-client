@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils,
   System.Classes,
-  IniFiles,
+  System.IniFiles,
   TMS.MCP.CustomDialog,
   TMS.MCP.Client.SettingsDialog,
   TMS.MCP.CustomComponent,
@@ -18,9 +18,9 @@ type
     procedure SettingsDialogAPIKeysChanged(Sender: TObject);
     procedure SettingsDialogServersChanged(Sender: TObject);
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+
   end;
 
 var
@@ -50,7 +50,7 @@ end;
 
 procedure TMCPDM.SettingsDialogServersChanged(Sender: TObject);
 begin
-  MCPClient.Servers.SaveToJSONFile(ChangeFileExt(ParamStr(0),'-config.json'));
+  MCPClient.Servers.SaveToJSONFile(ChangeFileExt(ParamStr(0), '-config.json'));
 end;
 
 end.

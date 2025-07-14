@@ -61,7 +61,7 @@ object MainView: TMainView
         Text = 'Logs'
         TextSettings.Trimming = None
       end
-      object cboxLLMService: TComboBox
+      object cboxIAService: TComboBox
         Align = Right
         Items.Strings = (
           'OpenAI'
@@ -117,6 +117,7 @@ object MainView: TMainView
     object mmChat: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
+      TextSettings.WordWrap = True
       Align = Client
       Size.Width = 689.000000000000000000
       Size.Height = 378.000000000000000000
