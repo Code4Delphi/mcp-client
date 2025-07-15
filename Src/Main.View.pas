@@ -88,6 +88,7 @@ begin
   end;
 
   Self.AddChatResponse(AResponse);
+  mmQuestion.Lines.Clear;
 end;
 
 procedure TMainView.cBoxIAServiceFill;
@@ -169,12 +170,9 @@ begin
     raise Exception.Create('Informe um prompt para continuar');
 
   MCPDM.MCPClient.LLM.Service := TTMSMCPCloudAIService(cboxIAService.Items.Objects[cboxIAService.ItemIndex]);
+  MCPDM.MCPClient.Execute(mmQuestion.Text);
 
   Self.AddChatQuestion(mmQuestion.Text);
-
-  MCPDM.MCPClient.Execute(mmQuestion.Text);
-  mmQuestion.Lines.Clear;
-
   Self.ShowLoading(True);
 end;
 
