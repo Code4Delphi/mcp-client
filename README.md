@@ -1,4 +1,4 @@
-# MCP Clients
+# MCP Client
 
 Este repositório traz um exemplo funcional de um **MCP Client** desenvolvido com **Delphi**, utilizando o **[TMS AI Studio](https://www.tmssoftware.com/site/tmsaistudio.asp)**. Ele mostra como sua aplicação pode se comunicar com **MCP Servers** (sejam próprios ou de terceiros) e, assim, conectar **LLMs a dados e funcionalidades reais**.
 
