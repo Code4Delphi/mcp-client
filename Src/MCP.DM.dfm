@@ -1,7 +1,7 @@
 object MCPDM: TMCPDM
   OnCreate = DataModuleCreate
-  Height = 339
-  Width = 432
+  Height = 300
+  Width = 305
   object MCPClient: TTMSMCPClient
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
@@ -17,14 +17,14 @@ object MCPDM: TMCPDM
     Servers = <>
     ToolCallMode = tcmAllow
     OnLog = MCPClientLog
-    Left = 104
-    Top = 72
+    Left = 144
+    Top = 80
   end
   object SettingsDialog: TTMSMCPClientSettingsDialog
     Client = MCPClient
     OnAPIKeysChanged = SettingsDialogAPIKeysChanged
     OnServersChanged = SettingsDialogServersChanged
-    Left = 104
-    Top = 136
+    Left = 144
+    Top = 144
   end
 end
