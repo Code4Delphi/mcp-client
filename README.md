@@ -15,11 +15,16 @@ Um **MCP Client** é responsável por:
 
 Ou seja: ele é a **ponte entre o modelo de linguagem (LLM)** e os **recursos externos** que você quer disponibilizar — como leitura de arquivos, acesso a banco de dados, APIs, etc.
 
-## Links úteis
-- Postagem completa sobre MCP Server e Client: <br/>
-https://code4delphi.com.br/blog/mcp/
-- Repositório com exemplos práticos e projetos prontos de **MCP Servers** criados com Delphi: <br/>
-https://github.com/Code4Delphi/mcp-servers
+## 🔗 IA e MCP na prática
+- ▶️ [Vídeos práticos sobre MCP](https://www.youtube.com/watch?v=G7H9_hGQ3Q8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+
+- 🗂️ [Repositório com exemplo de IA na Prática](https://github.com/Code4Delphi/ia-na-pratica)
+
+- 🗂️ [Repositório com MCP Servers criados com Delphi](https://github.com/Code4Delphi/mcp-servers)
+
+- 🌟 [Postagem sobre MCP Server e Client](https://code4delphi.com.br/blog/mcp/)
+
+- 🌟 [Postagem sobre IA na prática: IAs utilizadas](https://code4delphi.com.br/blog/ia-na-pratica-ias-utilizadas/)
 
 ## 📞 Contatos
 [![Telegram](https://img.shields.io/badge/Telegram-Join-blue?logo=telegram)](https://t.me/Code4Delphi)
