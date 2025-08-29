@@ -15,6 +15,9 @@ Um **MCP Client** é responsável por:
 
 Ou seja: ele é a **ponte entre o modelo de linguagem (LLM)** e os **recursos externos** que você quer disponibilizar — como leitura de arquivos, acesso a banco de dados, APIs, etc.
 
+## ▶️ Demonstração do MCP Client
+- [Ver vídeo no Youtube](https://www.youtube.com/watch?v=B3_HI9-8N_U&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+
 ## 🔗 IA e MCP na prática
 - ▶️ [Vídeos práticos sobre MCP](https://www.youtube.com/watch?v=G7H9_hGQ3Q8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
