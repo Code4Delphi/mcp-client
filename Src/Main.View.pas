@@ -111,6 +111,8 @@ begin
   finally
     LIni.Free;
   end;
+  //MCPDM.MCPClient.LLM.Settings.OllamaModel := 'llama3.2';
+  MCPDM.MCPClient.LLM.Settings.OllamaModel := 'mistral';
 
   MCPDM.MCPClient.LLM.APIKeys.LoadFromFile(LFileNameIni, ParamStr(0));
 end;

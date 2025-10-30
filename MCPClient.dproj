@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{96580E6E-897F-4DFD-AE58-A3C1816E618F}</ProjectGuid>
-        <ProjectVersion>20.2</ProjectVersion>
+        <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
@@ -91,7 +91,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>fmx;DbxCommonDriver;bindengine;IndyIPCommon;emsclient;IndyProtocols;dbxcds;FMX_FlexCel_Components;FmxTeeUI;FlexCel_Pdf;FMXTMSFNCChartPkgDXE15;FireDACSqliteDriver;DbxClientDriver;soapmidas;dbexpress;inet;FMX_FlexCel_Core;FireDACDBXDriver;CustomIPTransport;ZCore;ZParseSql;IndySystem;FireDACCommon;emsserverresource;FlexCel_Render;ZComponent;bindcompdbx;rtl;TMSFNCPushNotificationsPkgDXE15;DBXSqliteDriver;DataSnapFireDAC;FireDAC;xmlrtl;dsnap;DataSnapNativeClient;FMXTMSFNCUIPackPkgDXE15;TMSFNCCorePkgDXE15;FMXTMSFNCCorePkgDXE15;emshosting;FireDACCommonDriver;IndyIPClient;emsedge;bindcompfmx;fmxFireDAC;DataSnapCommon;fmxase;dbrtl;FlexCel_XlsAdapter;FMXTMSFNCCloudPackPkgDXE15;DBXInterBaseDriver;FlexCel_Core;bindcomp;inetstn;IndyCore;RESTBackendComponents;ZPlain;RESTComponents;IndyIPServer;dsnapxml;DataSnapClient;DataSnapProviderClient;emsclientfiredac;FireDACDSDriver;tethering;ZDbc;CloudService;FMXTee;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
-        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=34</VerInfo_Keys>
+        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=35</VerInfo_Keys>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <Android_LauncherIcon36>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_36x36.png</Android_LauncherIcon36>
@@ -125,7 +125,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android64)'!=''">
         <DCC_UsePackage>ACBr_NFCom;fmx;DbxCommonDriver;bindengine;IndyIPCommon;emsclient;IndyProtocols;dbxcds;FMX_FlexCel_Components;FmxTeeUI;FlexCel_Pdf;FMXTMSFNCChartPkgDXE15;FireDACSqliteDriver;DbxClientDriver;soapmidas;ACBr_PagFor;dbexpress;inet;FMX_FlexCel_Core;FireDACDBXDriver;CustomIPTransport;ZCore;ACBr_NFSeX;ZParseSql;IndySystem;ACBr_NFSeXDanfseRL;FireDACCommon;emsserverresource;ACBr_SATExtratoFPDF;FlexCel_Render;ZComponent;bindcompdbx;rtl;TMSFNCPushNotificationsPkgDXE15;frce;DBXSqliteDriver;DataSnapFireDAC;FireDAC;xmlrtl;dsnap;DataSnapNativeClient;FMXTMSFNCUIPackPkgDXE15;TMSFNCCorePkgDXE15;FMXTMSFNCCorePkgDXE15;emshosting;FireDACCommonDriver;IndyIPClient;emsedge;bindcompfmx;fmxFireDAC;DataSnapCommon;dbrtl;FlexCel_XlsAdapter;FMXTMSFNCCloudPackPkgDXE15;DBXInterBaseDriver;FlexCel_Core;bindcomp;inetstn;IndyCore;RESTBackendComponents;ZPlain;RESTComponents;IndyIPServer;dsnapxml;DataSnapClient;DataSnapProviderClient;ACBr_Boleto;emsclientfiredac;FireDACDSDriver;ACBrBaaS;tethering;ZDbc;ACBr_GTIN;CloudService;ACBr_OFX;FMXTee;ACBr_DebitoAutomatico;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
-        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=34</VerInfo_Keys>
+        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=35</VerInfo_Keys>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <Android_LauncherIcon36>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_36x36.png</Android_LauncherIcon36>
@@ -387,6 +387,16 @@
                     </Platform>
                     <Platform Name="Android64">
                         <RemoteDir>res\values-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStylesV35">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values-v35</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\values-v35</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>

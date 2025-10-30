@@ -2,7 +2,7 @@ object MainView: TMainView
   Left = 0
   Top = 0
   Caption = 'MCP Client Demo'
-  ClientHeight = 703
+  ClientHeight = 640
   ClientWidth = 808
   Position = ScreenCenter
   FormFactor.Width = 320
@@ -13,7 +13,7 @@ object MainView: TMainView
   object pnBackAll: TPanel
     Align = Client
     Size.Width = 808.000000000000000000
-    Size.Height = 703.000000000000000000
+    Size.Height = 640.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object Label1: TLabel
@@ -33,7 +33,7 @@ object MainView: TMainView
       Padding.Top = 3.000000000000000000
       Padding.Right = 3.000000000000000000
       Padding.Bottom = 3.000000000000000000
-      Position.Y = 668.000000000000000000
+      Position.Y = 605.000000000000000000
       Size.Width = 808.000000000000000000
       Size.Height = 35.000000000000000000
       Size.PlatformDefault = False
@@ -66,15 +66,6 @@ object MainView: TMainView
       end
       object cboxIAService: TComboBox
         Align = Right
-        Items.Strings = (
-          'OpenAI'
-          'Gemini'
-          'Claude'
-          'Grok'
-          'Mistral'
-          'DeepSeek'
-          'Ollama')
-        ItemIndex = 2
         Margins.Top = 3.000000000000000000
         Margins.Right = 5.000000000000000000
         Margins.Bottom = 3.000000000000000000
@@ -114,10 +105,11 @@ object MainView: TMainView
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
       Lines.Strings = (
-        'Ol'#225' quem '#233' voc'#234' e qual seu criador?')
+        'Detalhe as tools a qual voc'#234' tem acesso?')
       TextSettings.WordWrap = True
       Align = Bottom
-      Position.Y = 601.000000000000000000
+      ClipParent = True
+      Position.Y = 538.000000000000000000
       Size.Width = 808.000000000000000000
       Size.Height = 67.000000000000000000
       Size.PlatformDefault = False
@@ -129,7 +121,7 @@ object MainView: TMainView
       Align = Bottom
       Cursor = crVSplit
       MinSize = 20.000000000000000000
-      Position.Y = 593.000000000000000000
+      Position.Y = 530.000000000000000000
       Size.Width = 808.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -140,11 +132,11 @@ object MainView: TMainView
       TextSettings.WordWrap = True
       Align = Client
       Size.Width = 808.000000000000000000
-      Size.Height = 568.000000000000000000
+      Size.Height = 505.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       Viewport.Width = 804.000000000000000000
-      Viewport.Height = 564.000000000000000000
+      Viewport.Height = 501.000000000000000000
     end
   end
   object pnLoading: TPanel
