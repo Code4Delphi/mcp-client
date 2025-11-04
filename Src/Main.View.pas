@@ -23,7 +23,7 @@ uses
   FMX.Memo,
   TMS.MCP.CloudAI,
   MCP.DM,
-  Log.View;
+  Log.View, FMX.Menus;
 
 type
   TMainView = class(TForm)
@@ -40,10 +40,22 @@ type
     pnLoading: TPanel;
     AniIndicator1: TAniIndicator;
     ckLimparChat: TCheckBox;
+    ckLimparPrompt: TCheckBox;
+    PopupMenu1: TPopupMenu;
+    MenuItemPromptsDefault1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem1: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure btnSettingsClick(Sender: TObject);
     procedure btnAskClick(Sender: TObject);
     procedure btnToolsLogClick(Sender: TObject);
+    procedure MenuItemPromptsDefault1Click(Sender: TObject);
   private
     procedure MCPClientExecuted(Sender: TObject; AResponse: string; AHttpStatusCode: Integer; AHttpResult: string);
     procedure SendToAI;
@@ -88,14 +100,16 @@ begin
   end;
 
   Self.AddChatResponse(AResponse);
-  mmQuestion.Lines.Clear;
+
+  if ckLimparPrompt.IsChecked then
+    mmQuestion.Lines.Clear;
 end;
 
 procedure TMainView.cBoxIAServiceFill;
 begin
   cBoxIAService.Items.Clear;
   cBoxIAService.Items.Assign(MCPDm.MCPClient.LLM.GetServices(True));
-  cBoxIAService.ItemIndex := 0;
+  cBoxIAService.ItemIndex := 6;
 end;
 
 procedure TMainView.LoadSettings;
@@ -108,11 +122,10 @@ begin
   try
     MCPDM.MCPClient.LLM.Settings.OllamaHost := LIni.ReadString('Settings', 'OllamaHost', 'localhost');
     MCPDM.MCPClient.LLM.Settings.OllamaPort := LIni.ReadInteger('Settings', 'OllamaPort', 11434);
+    MCPDM.MCPClient.LLM.Settings.OllamaModel := LIni.ReadString('Models', 'OllamaModel', MCPDM.MCPClient.LLM.Settings.OllamaModel);
   finally
     LIni.Free;
   end;
-  //MCPDM.MCPClient.LLM.Settings.OllamaModel := 'llama3.2';
-  MCPDM.MCPClient.LLM.Settings.OllamaModel := 'mistral';
 
   MCPDM.MCPClient.LLM.APIKeys.LoadFromFile(LFileNameIni, ParamStr(0));
 end;
@@ -189,5 +202,15 @@ begin
     LLogView.Free;
   end;
 end;
+
+procedure TMainView.MenuItemPromptsDefault1Click(Sender: TObject);
+begin
+  if TMenuItem(Sender).Text = MenuItemPromptsDefault1.Text then
+    Exit;
+
+  mmQuestion.Lines.Text := TMenuItem(Sender).Text;
+  mmQuestion.SelStart := mmQuestion.Text.Length;
+end;
+
 
 end.

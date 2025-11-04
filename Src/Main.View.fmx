@@ -97,18 +97,29 @@ object MainView: TMainView
         Size.Width = 182.000000000000000000
         Size.Height = 29.000000000000000000
         Size.PlatformDefault = False
+        TabOrder = 7
+        Text = 'Limpar chat a cada prompt'
+      end
+      object ckLimparPrompt: TCheckBox
+        Align = Left
+        Position.X = 356.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 182.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 6
-        Text = 'Limpar chat a cada pergunta'
+        Text = 'Limpar prompt a cada envio'
       end
     end
     object mmQuestion: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
       Lines.Strings = (
-        'Detalhe as tools a qual voc'#234' tem acesso?')
+        'Detalhe a quais MCPs voc'#234' tem acesso')
       TextSettings.WordWrap = True
       Align = Bottom
       ClipParent = True
+      PopupMenu = PopupMenu1
       Position.Y = 538.000000000000000000
       Size.Width = 808.000000000000000000
       Size.Height = 67.000000000000000000
@@ -155,6 +166,46 @@ object MainView: TMainView
       Size.Height = 94.000000000000000000
       Size.PlatformDefault = False
       Style = Circular
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 744
+    Top = 552
+    object MenuItemPromptsDefault1: TMenuItem
+      Text = 'Prompts default'
+      OnClick = MenuItemPromptsDefault1Click
+    end
+    object MenuItem4: TMenuItem
+      Text = '-'
+    end
+    object MenuItem2: TMenuItem
+      Text = 'Listar tabelas do banco'
+      OnClick = MenuItemPromptsDefault1Click
+    end
+    object MenuItem3: TMenuItem
+      Text = 'Listar as 5 '#250'ltimas vendas'
+      OnClick = MenuItemPromptsDefault1Click
+    end
+    object MenuItem5: TMenuItem
+      Text = 'Listar campos da tabela vendas'
+      OnClick = MenuItemPromptsDefault1Click
+    end
+    object MenuItem6: TMenuItem
+      Text = 'Inserir 2 vendas cada uma com 3 itens'
+      OnClick = MenuItemPromptsDefault1Click
+    end
+    object MenuItem1: TMenuItem
+      Text = '-'
+    end
+    object MenuItem7: TMenuItem
+      Text = 'Gerar NFe para o destinat'#225'rio Cesar Cardoso com n'#250'mero #'
+      OnClick = MenuItemPromptsDefault1Click
+    end
+    object MenuItem8: TMenuItem
+      Text = 
+        'Gerar NFe para o destinat'#225'rio LOCA'#199#195'O DE SOFTWARES LTDA com n'#250'me' +
+        'ro #'
+      OnClick = MenuItemPromptsDefault1Click
     end
   end
 end
